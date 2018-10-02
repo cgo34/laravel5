@@ -14,10 +14,24 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\User::class, function (Faker $faker) {
+
+    $faker = Faker\Factory::create('fr_FR');
+    $gender = $faker->randomElement($array = array ('male', 'female'));
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
+        'civilite'          =>  $gender,
+        'first_name'        =>  $faker->firstName($gender),
+        'last_name'         =>  $faker->lastName,
+        'email'             =>  $faker->unique()->safeEmail,
+        'password'          =>  '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'remember_token'    =>  str_random(10),
+        //'valid'             =>  true,
+        //'confirmed'         =>  true,
+        'role'              =>  $faker->numberBetween($min = 1, $max = 4),
+        'address'           =>  $faker->address,
+        'zip_code'          =>  $faker->postcode,
+        'city'              =>  $faker->city,
+        'country'           =>  $faker->country,
+        'phone'             =>  $faker->phoneNumber,
     ];
 });

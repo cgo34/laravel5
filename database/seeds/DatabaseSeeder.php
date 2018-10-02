@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        User::create(
+        $this->call(UsersTableSeeder::class);
+        /*User::create(
             [
                 'civilite' => 'Mr',
                 'first_name' => 'Geoffroy',
@@ -25,6 +25,6 @@ class DatabaseSeeder extends Seeder
                 'confirmed' => true,
                 'remember_token' => str_random(10),
             ]
-        );
+        );*/
     }
 }

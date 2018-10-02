@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::prefix('v1')->namespace('V1')->group(function () {
+    Auth::routes();
+});
+
+
+//Route::get('/register', 'V1\Auth\RegisterController@register')->name('register');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('users', 'UserController');
-

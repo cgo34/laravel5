@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -211,4 +211,18 @@ return [
 
     ],
 
+
+    /*
+    |-------------------------------------------
+    | API Version
+    |-------------------------------------------
+    |
+    | This value is the version of your api.
+    | It's used when there's no specified
+    | version on the routes, so it will take this
+    | as the default, or current.
+     */
+
+    'api_latest'  => '1',
+    'faker_locale' => 'fr_FR',
 ];
